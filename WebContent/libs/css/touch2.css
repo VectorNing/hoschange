@@ -1,0 +1,200 @@
+body.signin{height:auto;background:url(../img/login-background.jpg) no-repeat center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;color:rgba(255,255,255,.95)}
+div.seatCharts-cell {
+	color: #182C4E;
+	height: auto;
+	width: auto;
+	line-height: 15px;
+	margin: 0px;
+	float: left;
+	text-align: center;
+	outline: none;
+	font-size: 13px;
+	padding: 20px;
+	/* padding-top: 13px; */
+}
+div.cell-con{
+	height: 115px;
+	width: 73px;
+	margin: 30px;
+	padding: 0px;
+	margin-top: 10px;
+	border: 1px solid #3d85c6; 
+	border-color: #3d85c6
+}
+.cell{
+	width:72px;
+	margin: 0px;
+	float: left;
+	color: white;
+	padding-top: 5px;
+	position: relative;
+	height: 60px;
+}
+.cell p{
+	color: #6fa8dc;
+	font-size: 12px;
+	line-height: 12px;
+	position: absolute;
+	margin:0;
+}
+.cell>.count{
+	right: 5px;
+	bottom:0;
+}
+.cell>.trayNumber{
+	left:-3px;
+	top:-6px;
+	background: #abc;
+	color: black;
+	border-radius: 2px;
+	padding: 3px;
+}
+.cell>.size{
+	position: static;
+	font-size: 18px;
+	line-height: 50px;
+}
+.steTitle{
+	background-color: #fff2cc;
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	text-align: left;
+	font-size: 15px;
+	line-height: 35px;
+	
+}
+.steTitle p{
+	color: #6fa8dc;
+	line-height:inherit;
+}
+.steTitle p>span{
+	padding:0 10px;
+	background: #ff8000;
+	color:yellow;
+	display:inline-block;
+	margin-right: 15px;
+	line-height:inherit;
+}
+div.seatCharts-cell-con {
+	height: 54px;
+	width: 72px;
+	line-height: 15px;
+	margin: 0px;
+	float: left;
+	text-align: center;
+	outline: none;
+	font-size: 13px;
+	background-image:url("../img/cabinet_72.png");
+	/* padding-top: 13px; */
+}
+
+div.seatCharts-seat-con {
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+/* div.seatCharts-seat-con.available {
+	background-color: blue;
+} */
+div.seatCharts-seat {
+	color: #fff;
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+div.seatCharts-seat.available {
+	/* background-color: #B9DEA0; */
+	background-color: #fff2cc; 
+}
+
+div.seatCharts-seat.full {
+	background-color: red;
+}
+
+div.seatCharts-seat.unavailable {
+	background-color: #472B34;
+	cursor: not-allowed;
+}
+
+div.seatCharts-seat.selected {
+	background-color: #E6CAC4;
+}
+div.seatCharts-seat.selected div.seatCharts-seat-con{
+	/* background-color: #E6CAC4; */
+	/* background-color: #3d85c6; */
+	background-image:url("../img/cabinet_72_2.png");
+	
+}
+div.seatCharts-seat.focused {
+	background-color: #76B474;
+	border: none;
+}
+#tray_chose {
+	max-height: 150px;
+	overflow-y: auto;
+	overflow-x: none;
+	width: 200px;
+	color: black;
+	text-align:center;
+}
+
+#tray_chose li {
+	float: left;
+	width: 100px;
+	height: 26px;
+	line-height: 26px;
+	border: 1px solid #d3d3d3;
+	background: #f7f7f7;
+	margin: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	float: left;
+}
+
+ol, ul {
+	list-style: none
+}
+.booking_area{
+	width:auto;
+	height:auto;
+	background-color: #fff2cc; 
+	padding-top: 20px;
+	text-align: center;
+	margin: 40px 40px 0 0;
+}
+.booking_area label{
+	color: black;
+	padding: 10px;
+}
+
+.pageUpDown{
+	position:fixed;
+	bottom: 30px;
+	right: 50px;
+}
+
+div.seatCharts-cell.seatCharts-seat.cell-con{
+	position: relative;
+}
+
+input.allot{
+	color:black;
+	width: 50px;
+	position: absolute;
+	bottom: -25px;
+	left: 50%;
+	transform: translateX(-25px);	
+}
+
+.sizeTable{
+	color: black;
+}
+.booking_area{
+	color: black;
+}

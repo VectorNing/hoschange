@@ -1,0 +1,43 @@
+<Context>
+	<Resource 
+	    name="jdbcHosChange" 
+	    auth="Container"
+		type="javax.sql.DataSource"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+		maxActive="5" 
+		maxIdle="1"
+		maxWait="10000"
+		removeAbandoned="true"
+        removeAbandonedTimeout="1800"
+		logAbandoned="true" 
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://127.0.0.1:3306/hoschange?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+		username="root" 
+		password="root"
+		testOnBorrow="true"
+		testWhileIdle="true"
+		validationQuery="select 1 from db_info"
+	/>
+ 		<!-- <Resource 
+	    name="oraclehoschange" 
+	    auth="Container"
+		type="javax.sql.DataSource"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+		maxActive="5" 
+		maxIdle="1"
+		maxWait="10000"
+		removeAbandoned="true"
+        removeAbandonedTimeout="1800"
+		logAbandoned="true" 
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@192.168.126.210:1521:orcl"
+		username="sesxh" 
+		password="sesxh"
+		testOnBorrow="true"
+		testWhileIdle="true"
+		validationQuery="select 1 from dual"
+	/>   -->
+</Context>
+
+
+

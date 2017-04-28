@@ -1,0 +1,49 @@
+apply plugin: 'war'
+apply plugin: 'maven'
+
+group = 'com.sesxh'
+archivesBaseName = 'hoschange'
+version = '1.01.01'
+webAppDirName='WebContent'
+defaultTasks 'clean','build'
+
+sourceCompatibility=1.8
+targetCompatibility=1.8
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+//设置mvn仓库
+//repositories { 
+//	maven{	url "http://192.168.126.254:8081/repository/maven-public/"	}
+//}
+
+dependencies {
+	//javaEE
+	providedCompile 'javax:javaee-api:7.0',
+                    'javax:javaee-web-api:7.0'
+             
+	runtime 'javax.servlet:jstl:1.2'
+	
+	compile 'com.sesxh:sesframe:4.01.00.yf018',
+			//web
+	        'org.tuckey:urlrewrite:2.5.2',
+			'com.jcraft:jsch:0.1.50',
+			//database
+			'mysql:mysql-connector-java:5.1.39',
+			//quartz
+			'org.quartz-scheduler:quartz:2.1.6'
+	compile 'com.alibaba:druid:1.0.20',
+    		'com.google.guava:guava:19.0',
+    		'com.alibaba:fastjson:1.1.41',
+    		'net.sf.ehcache:ehcache:2.10.2'	
+}
+
+//支持当前目录结构
+sourceSets {
+	main {
+		java { srcDir 'src' }
+		resources{
+			srcDir 'src'
+			exclude 'com/*'
+		}
+	}
+}

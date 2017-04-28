@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean初始化 -->
+	<bean id="com.sesxh.hoschange.global.HoschangeGlobalNames" class="com.sesxh.hoschange.global.HoschangeGlobalNames">
+		<!-- 系统ID -->
+		<property name="appId" value="${app.id}" />
+
+		<!-- 系统名称 -->
+		<property name="appName" value="${app.name}" />
+
+		<!-- 系统字符集 -->
+		<property name="encoding" value="${app.encoding}" />
+
+		<!-- 系统模式 -->
+		<property name="appMode" value="${app.mode}" />
+
+	</bean>
+	<bean id="com.sesxh.frame.global.SesframeGlobalNames" class="com.sesxh.frame.global.SesframeGlobalNames">
+		<!-- 系统字符集 -->
+		<property name="encoding" value="${app.encoding}" />
+
+		<!-- 系统模式 -->
+		<property name="appMode" value="${app.mode}" />
+	</bean>
+	
+<!-- 	<bean id="com.sdsesxh.base.global.BizPropConst" class="com.sdsesxh.base.global.BizPropConst" lazy-init="false">
+		<property name="logPersistToDB" value="${biz.logPersistToDB}"/>
+		<property name="strategyShoe" value="${biz.strategyShoe}"/>
+		<property name="strategyCloth" value="${biz.strategyCloth}"/>
+		<property name="isOrNotRecycled" value="${biz.isOrNotRecycled}"/>
+		<property name="receiveMode" value="${biz.receiveMode}"/>
+		<property name="roster" value="${biz.roster}"/>
+		<property name="brushCardTime" value="${biz.brushCardTime}"/>
+		<property name="yesOrNoHaveShoeBox" value="${biz.yesOrNoHaveShoeBox}"/>
+		<property name="latelyNum" value="${biz.latelyNum}"/>
+		<property name="isOrNoRoster" value="${biz.isOrNoRoster}"/>
+	</bean> -->
+</beans>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCLoader>
+	<elements>
+		<!-- 自启动方法示例 -->
+		<!-- <element type="void">
+			<bean>com.sdsesxh.base.loader.SampleBean</bean>
+			<method>autoRun</method>
+		</element> -->
+	</elements>
+	
+</SCLoader>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<context:component-scan base-package="com.sdses.frame,com.sdsesxh" />
+
+	<bean id="appPropConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:config/config.properties</value>
+				<!-- 加载用户配置，部署时请改用 ${user.dir} -->
+				<value>classpath:sesconfig/sesframeDemo/app-config.properties
+				</value>
+				<!-- <value>file:${user.dir}/sesconfig/sesframeDemo/app-config.properties</value> -->
+			</list>
+		</property>
+
+		<property name="fileEncoding" value="UTF-8" />
+	</bean>
+	<bean name="hoschangeAutoProxyHandler"
+		class="com.sesxh.hoschange.common.proxy.HoschangeAutoProxyHandler" />
+
+<!-- 	<bean id="multipartResolver" -->
+<!-- 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" /> -->
+
+	<!-- <bean name="componentDynamicFactory" class="com.sdsesxh.base.localize.impl.ComponentDynamicFactoryImpl"/> -->
+<!-- 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  -->
+
+	<bean class="com.sesxh.hoschange.common.util.AppCtxUtil" />
+
+	<import resource="ctx-database-config.xml" />
+	<import resource="ctx-globalNames-config.xml" />
+	<import resource="ctx-tmg-config.xml" />
+	<import resource="ctx-config-ehcache.xml" />
+
+	<context:component-scan base-package="com.sesxh.frame,com.sesxh.hoschange">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 支持 @AspectJ 标记 -->
+	<aop:aspectj-autoproxy />
+	
+
+</beans>

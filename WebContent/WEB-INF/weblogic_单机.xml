@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE weblogic-web-app PUBLIC "-//BEA Systems, Inc.//DTD Web Application 8.1//EN" "http://www.bea.com/servers/wls810/dtd/weblogic810-web-jar.dtd">
+
+<weblogic-web-app>
+	<session-descriptor>
+		<session-param>
+			<param-name>PersistentStoreType</param-name>
+			<param-value>memory</param-value>
+		</session-param>
+		<session-param>
+			<param-name>CacheSize</param-name>
+			<param-value>256</param-value>
+		</session-param>
+		<session-param>
+			<param-name>IDLength</param-name>
+			<param-value>32</param-value>
+		</session-param>
+	</session-descriptor>
+	<container-descriptor>
+		<prefer-web-inf-classes>true</prefer-web-inf-classes>
+	</container-descriptor>
+	<charset-params>
+		<input-charset>
+			<resource-path>/*</resource-path>
+			<java-charset-name>UTF-8</java-charset-name>
+		</input-charset>
+	</charset-params>
+	<!-- <context-root>/hsframe</context-root> 用来重定义请求符-->
+</weblogic-web-app>
+

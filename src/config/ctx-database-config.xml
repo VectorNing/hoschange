@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+<bean id="DbidLoader" class="com.sesxh.hoschange.loader.DbidLoader"/>
+<!-- <bean id="sampleBean" class="com.sdsesxh.base.loader.SampleBean"/> -->
+
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">  
+        <property name = "dataSource" ref="dataSource"/>  
+</bean> 
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${dataSource.jndiName}"></property>
+		<property name="resourceRef" value="true"></property>
+	</bean>
+	
+  <!-- <bean id="oracledataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="oraclehoschange"></property>
+		<property name="resourceRef" value="true"></property>
+	</bean> 
+
+	 <bean id="oracledatabase" class="com.sesxh.frame.common.db.Database"
+		init-method="init">
+		<property name="idLoader" ref="DbidLoader" />
+		<property name="name" value="primaryDatabase" />
+		<property name="dataSource" ref="oracledataSource" />
+		<property name="type" value="ORACLE" />
+		<property name="version" value="11" />
+		<property name="primary" value="true" />
+	</bean>  -->
+	
+		<bean id="primaryDatabase" class="com.sesxh.frame.common.db.Database"
+		init-method="init">
+		<property name="idLoader" ref="DbidLoader" />
+		<property name="name" value="primaryDatabase" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="type" value="${dataSource.type}" />
+		<property name="version" value="${dataSource.version}" />
+		<property name="primary" value="true" />
+	</bean>
+	
+	<bean id="databaseDescriptor"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"
+		scope="singleton">
+		<property name="targetObject" ref="primaryDatabase" />
+		<property name="targetMethod" value="getDescriptor" />
+	</bean>
+
+	<bean id="com.sesxh.frame.common.db.SessionManager" class="com.sesxh.frame.common.db.SessionManager"
+		scope="singleton">
+		<property name="databaseMap">
+			<map>
+				<entry key="primaryDatabase" value-ref="primaryDatabase" />
+				<!--  <entry key="oracledatabase" value-ref="oracledatabase" />  -->
+			</map>
+		</property>
+		<property name="primaryDatabaseKey" value="primaryDatabase" />
+	</bean>
+</beans>
